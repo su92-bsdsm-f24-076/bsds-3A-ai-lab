@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="card">
+        <h2>Blood Pressure Predictor</h2>
+        <p class="subtitle">Enter your information below</p>
+
+        <form action="/predict" method="POST">
+
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" name="age" required>
+            </div>
+
+            <div class="input-box">
+                <label>Weight (kg)</label>
+                <input type="number" name="weight" required>
+            </div>
+
+            <div class="input-box">
+                <label>Height (cm)</label>
+                <input type="number" name="height" required>
+            </div>
+
+            <div class="input-box">
+                <label>Gender</label>
+                <select name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <button class="btn">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <h3>Result:</h3>
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>
